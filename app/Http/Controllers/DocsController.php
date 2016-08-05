@@ -45,7 +45,7 @@ class DocsController extends Controller {
 		}
 
 		$content = $this->docs->get($version, $page ?: 'installation');
-		
+
 		if (is_null($content)) {
 			abort(404);
 		}
@@ -67,6 +67,8 @@ class DocsController extends Controller {
 			'currentVersion' => $version,
 			'versions' => Documentation::getDocVersions(),
 			'currentSection' => $section,
+			'lastVersion' => DEFAULT_VERSION,
+			'lastVersionUrl' => app('url')->route('documentation', ['version' => DEFAULT_VERSION, 'page' => $page]),
 		]);
 	}
 

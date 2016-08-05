@@ -28,4 +28,4 @@ get('/', function() {
 });
 
 get('docs', 'DocsController@showRootPage');
-get('docs/{version}/{page?}', 'DocsController@show');
+get('docs/{version}/{page?}', ['uses' => 'DocsController@show', 'as' => 'documentation']);

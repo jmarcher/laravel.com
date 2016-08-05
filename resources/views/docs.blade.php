@@ -33,8 +33,10 @@
 			<i id="cross" class="icon"></i>
 		</div>
 	</div>
-
 	<article>
+		@if(! hash_equals($lastVersion, $currentVersion))
+			{!!  markdown("> {note} The actual documentation belongs to an outdated version of Laravel, you may consider to visit the [last version of this document]({$lastVersionUrl}).") !!}
+		@endif
 		{!! $content !!}
 	</article>
 </div>
